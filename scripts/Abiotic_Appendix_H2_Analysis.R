@@ -4,7 +4,7 @@ library(reshape2)
 library(ggplot2)
 library(dplyr)
 
-df <- read.csv("table3.csv")
+df <- read.csv("../data/table3.csv")
 df$Time <- as.factor(df$Time)
 df$Sample <- factor(df$Sample,levels = c("H2O", "Granite_ctrl", "Sandstone_ctrl", "Basalt_ctrl", "Granite", "Sandstone", "Basalt"))
 
@@ -26,16 +26,16 @@ p1 <- ggplot(exp1, aes(x=Time, y=H2, fill=Sample)) +
                 position=position_dodge(.9)) + 
   theme_bw() + 
   scale_fill_brewer(palette="Dark2") +
-  ggtitle("H2 Production - <45um") +
+  ggtitle("Hydrogen Production - <45 µm") +
   xlab("Time (hours)") +
-  ylab("H2 (nmol/g rock)") +
+  ylab(expression(H[2]~"(nmol/g rock)")) +
   theme(plot.title=element_text(hjust=0.5)) +
   scale_fill_manual(values=cbPalette) + ylim(-60,405)
 p1
 
 
 # <45um edited
-exp0 <- read.csv("table5.csv")
+exp0 <- read.csv("../data/table5.csv")
 
 cbbbPalette <- c("#009E73", "springgreen", "#E69F00", "goldenrod1", "#CC79A7","plum1", "#56B4E9")
 
@@ -76,9 +76,9 @@ p2 <- ggplot(exp2, aes(x=Time, y=H2, fill=Sample)) +
                 position=position_dodge(.9)) + 
   theme_bw() + 
   scale_fill_brewer(palette="Dark2") +
-  ggtitle("H2 Production - 45-106um") +
+  ggtitle("Hydrogen Production - 45-106 µm") +
   xlab("Time (hours)") +
-  ylab("H2 (nmol/g rock)") +
+  ylab(expression(H[2]~"(nmol/g rock)")) +
   theme(plot.title=element_text(hjust=0.5)) +
   scale_fill_manual(values=cbPalette) + ylim(-60,405)
 p2
@@ -91,9 +91,9 @@ p3 <- ggplot(exp3, aes(x=Time, y=H2, fill=Sample)) +
                 position=position_dodge(.9)) + 
   theme_bw() + 
   scale_fill_brewer(palette="Dark2") +
-  ggtitle("106-150um") +
+  ggtitle("Hydrogen Production - 106-150 µm") +
   xlab("Time (hours)") +
-  ylab("H2 (nmol/g rock)") +
+  ylab(expression(H[2]~"(nmol/g rock)")) +
   theme(plot.title=element_text(hjust=0.5)) +
   scale_fill_manual(values=cbPalette) + ylim(-60,405)
 p3
@@ -106,16 +106,16 @@ p4 <- ggplot(exp4, aes(x=Time, y=H2, fill=Sample)) +
                 position=position_dodge(.9)) + 
   theme_bw() + 
   scale_fill_brewer(palette="Dark2") +
-  ggtitle("<45um, seawater") +
+  ggtitle("Hydrogen Production - <45 µm, seawater") +
   xlab("Time (hours)") +
-  ylab("H2 (nmol/g rock)") +
+  ylab(expression(H[2]~"(nmol/g rock)")) +
   theme(plot.title=element_text(hjust=0.5)) +
   scale_fill_manual(values=cbbPalette) + ylim(-60,405)
 p4
 
 ########### FIGURE S.1.6B ########### 
 
-granite <- read.csv("table4.csv")
+granite <- read.csv("../data/table4.csv")
 granite$Sample <- gsub("um", "μm", granite$Sample)
 granite$Time <- as.factor(granite$Time)
 
